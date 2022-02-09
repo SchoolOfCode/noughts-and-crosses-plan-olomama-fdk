@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Board from "../Board";
+import { calculateWinner } from "../helper";
 
 export default function Game() {
   let boardArray = [null, null, null, null, null, null, null, null, null];
@@ -12,12 +13,12 @@ export default function Game() {
   //   setXTurn(true)
   // } else {
   //   setXTurn(false)
-  // }; 
-    
-    // const [symbol, setSymbol] = useState(null);
+  // };
 
-    const winner = calculateWinner(board);
-    const currentPlayer = xTurn ? "X" : "O";
+  // const [symbol, setSymbol] = useState(null);
+
+  const winner = calculateWinner(board);
+  const currentPlayer = xTurn ? "X" : "O";
 
   const handleSquareClick = (index) => {
     if (winner || board[index]) {
@@ -27,21 +28,20 @@ export default function Game() {
     setBoard([
       ...board.slice(0, index),
       currentPlayer,
-      ...board.slice(index + 1)
+      ...board.slice(index + 1),
     ]);
 
     setXTurn(!xTurn);
   };
 
+  // function symbol(){
+  //   if (setXTurn === true || ){
+  //     setSymbol("X")
+  //   } else {
+  //     setSymbol("O")
+  //   }
+  // }
 
-    // function symbol(){
-    //   if (setXTurn === true || ){
-    //     setSymbol("X")
-    //   } else {
-    //     setSymbol("O")
-    //   }
-    // }
- 
   return (
     <>
       <h1>Tic Tac Toe Game</h1>
@@ -51,13 +51,11 @@ export default function Game() {
           {winner ? "Winner: " + winner : "Next Player: " + currentPlayer}
         </h3>
       </div>
-   </>
-      );
-};
+    </>
+  );
+}
 
-
-
-  //   const [xGo, setXGo] = useState(true);
+//   const [xGo, setXGo] = useState(true);
 
 /*
 Determine 1st player via 50/50 coinflip
@@ -72,9 +70,6 @@ When player 1 clicks a button, switch turn to player 2. (Maybe alert/popup to si
 
 
 */
-
-
-
 
 // State
 // board = [null,null,null,null,null,null,null,null,null] <- "X", "O", or null
@@ -91,5 +86,3 @@ When player 1 clicks a button, switch turn to player 2. (Maybe alert/popup to si
 // Board
 // Who's turn is it?
 // Winner
-
-
