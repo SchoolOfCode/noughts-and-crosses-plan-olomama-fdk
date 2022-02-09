@@ -1,4 +1,5 @@
 import { useState, React } from "react";
+import Square from "../Square";
 
 export default function Game() {
   let boardArray = [null, null, null, null, null, null, null, null, null];
@@ -6,7 +7,14 @@ export default function Game() {
   const [board, setBoard] = useState(boardArray);
   //   const [xGo, setXGo] = useState(true);
 
-  return <div>Game</div>;
+  return (
+      <div>
+        {board.map((item, index) => {
+          return <Square value={item}/>
+        })}
+        
+      </div>
+  );
 }
 
 // State

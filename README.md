@@ -90,7 +90,7 @@ Goes to these components:
     - `board = [null,null,null,null,null,null,null,null,null] <- "X", "O", or null`
     - `x's turn = true | false`
   - Behaviour
-    - make a move
+    - make a move (function makeaMove)
       - if the square is not empty, you can't pick it
       - if the square is empty, you can pick it - put the player symbol in that square
     - check winner
