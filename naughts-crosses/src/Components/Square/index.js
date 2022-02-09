@@ -7,3 +7,5 @@ export default function Square({value, index}) {
   return (<button onClick={handleClick}>{value}</button>);
 }
 
+
+
