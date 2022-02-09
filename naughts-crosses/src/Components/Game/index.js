@@ -1,21 +1,21 @@
 import { useState, React } from "react";
-import Square from "../Square";
+import Board from "../Board";
+
 
 export default function Game() {
-  let boardArray = [null, null, null, null, null, null, null, null, null];
-
-  const [board, setBoard] = useState(boardArray);
-  //   const [xGo, setXGo] = useState(true);
-
-  return (
-      <div>
-        {board.map((item, index) => {
-          return <Square value={item}/>
-        })}
-        
-      </div>
-  );
+  let boardArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  
+    const [board, setBoard] = useState(boardArray);
+  
+  //   function makeAMove(e) {
+  //     console.log()
+  // } 
+  return <Board gameBoard={board}/>
 }
+
+
+
+  //   const [xGo, setXGo] = useState(true);
 
 // State
 // board = [null,null,null,null,null,null,null,null,null] <- "X", "O", or null

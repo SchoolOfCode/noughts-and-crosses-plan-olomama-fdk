@@ -1,14 +1,20 @@
 import React from "react";
+import { useState } from 'react'
+import Square from '../Square'
 
-export default function Board() {
-
-
-  return (
-    <div>Board</div>
-
-    );
+export default function Board({gameBoard}) {
+  
+return (
+      <div>
+        {gameBoard.map((item, index) => {
+          return <Square value={item}/>
+        })}
+        
+      </div>
+  );
 }
 
+  
 
 // - Board
 //             - props
