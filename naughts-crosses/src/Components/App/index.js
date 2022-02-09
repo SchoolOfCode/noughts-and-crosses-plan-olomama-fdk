@@ -1,13 +1,13 @@
-import "./App.css";
-import Game from "../Game";
+// import "./App.css";
+// import Game from "../Game";
 
-function App() {
-  return (
-    <div className="App">
-      <h1>Hello</h1>
-      <Game />
-    </div>
-  );
-}
+// function App() {
+//   return (
+//     <div className="App">
+//       <h1>Hello</h1>
+//       <Game />
+//     </div>
+//   );
+// }
 
-export default App;
+// export default App;

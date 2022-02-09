@@ -1,9 +1,10 @@
 
-export default function Square({value, handleClick}) {
-  // function handleClick(e) {
-  //   console.log({value})
-  // }
+export default function Square({value, onClick}) {
+  const style = value ? `squares ${value}` : "squares";
+ 
   return (
-      <button onClick={handleClick}>{value}</button>
+      <button className={style} onClick={onClick}>
+        {value}
+      </button>
   );
 }

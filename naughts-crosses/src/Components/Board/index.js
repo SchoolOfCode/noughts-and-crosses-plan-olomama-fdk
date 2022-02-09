@@ -1,10 +1,10 @@
 import Square from '../Square'
 
-export default function Board({gameBoard, onSelectSquare}) {
+export default function Board({squares, onSelectSquare}) {
   
 return (
       <div className="board">
-        {gameBoard.map((square, index) => {
+        {squares.map((square, index) => {
           return <Square 
             key={index}
             value={square}

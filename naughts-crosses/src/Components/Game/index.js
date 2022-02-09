@@ -3,22 +3,13 @@ import Board from "../Board";
 import { calculateWinner } from "../helper";
 
 export default function Game() {
-  let boardArray = [null, null, null, null, null, null, null, null, null];
+  // let boardArray = [null, null, null, null, null, null, null, null, null];
 
-  const [xTurn, setXTurn] = useState(true);
-  const [board, setBoard] = useState(boardArray);
-
-  // let num = Math.random();
-  // if (num < 0.5) {
-  //   setXTurn(true)
-  // } else {
-  //   setXTurn(false)
-  // };
-
-  // const [symbol, setSymbol] = useState(null);
+  const [isXTurn, setIsXTurn] = useState(true);
+  const [board, setBoard] = useState(Array(9).fill(null));
 
   const winner = calculateWinner(board);
-  const currentPlayer = xTurn ? "X" : "O";
+  const currentPlayer = isXTurn ? "X" : "O";
 
   const handleSquareClick = (index) => {
     if (winner || board[index]) {
@@ -31,21 +22,13 @@ export default function Game() {
       ...board.slice(index + 1),
     ]);
 
-    setXTurn(!xTurn);
+    setIsXTurn(!isXTurn);
   };
-
-  // function symbol(){
-  //   if (setXTurn === true || ){
-  //     setSymbol("X")
-  //   } else {
-  //     setSymbol("O")
-  //   }
-  // }
 
   return (
     <>
       <h1>Tic Tac Toe Game</h1>
-      <Board gameBoard={board} onSelectSquare={handleSquareClick} />
+      <Board squares={board} onSelectSquare={handleSquareClick} />
       <div className="info-wrapper">
         <h3>
           {winner ? "Winner: " + winner : "Next Player: " + currentPlayer}
