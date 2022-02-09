@@ -1,22 +1,39 @@
-import { useState, React } from "react";
+import { useState } from "react";
 import Board from "../Board";
 
 export default function Game() {
-  let boardArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
-  const [xTurn, setXTurn] = useState
-  (true);
+  let boardArray = [null, null, null, null, null, null, null, null, null];
+
+  const [xTurn, setXTurn] = useState(true);
+  const [board, setBoard] = useState(boardArray);
+
+  
   let num = Math.random();
   if (num < 0.5) {
     setXTurn(true)
   } else {
     setXTurn(false)
   };
-    const [board, setBoard] = useState(boardArray);
+    
+    const [symbol, setSymbol] = useState(null);
+
+    function symbol(){
+      if (setXTurn === true || ){
+        setSymbol("X")
+      } else {
+        setSymbol("O")
+      }
+    }
   
   //   function makeAMove(e) {
   //     console.log()
   // } 
-  return <Board gameBoard={board}/>
+  return (
+    <>
+      <Board gameBoard={board}/>
+    
+    </>
+      );
 }
 
 
