@@ -7,34 +7,53 @@ export default function Game() {
   const [xTurn, setXTurn] = useState(true);
   const [board, setBoard] = useState(boardArray);
 
-  
-  let num = Math.random();
-  if (num < 0.5) {
-    setXTurn(true)
-  } else {
-    setXTurn(false)
-  };
+  // let num = Math.random();
+  // if (num < 0.5) {
+  //   setXTurn(true)
+  // } else {
+  //   setXTurn(false)
+  // }; 
     
-    const [symbol, setSymbol] = useState(null);
+    // const [symbol, setSymbol] = useState(null);
 
-    function symbol(){
-      if (setXTurn === true || ){
-        setSymbol("X")
-      } else {
-        setSymbol("O")
-      }
+    const winner = calculateWinner(board);
+    const currentPlayer = xTurn ? "X" : "O";
+
+  const handleSquareClick = (index) => {
+    if (winner || board[index]) {
+      return;
     }
-  
-  //   function makeAMove(e) {
-  //     console.log()
-  // } 
+
+    setBoard([
+      ...board.slice(0, index),
+      currentPlayer,
+      ...board.slice(index + 1)
+    ]);
+
+    setXTurn(!xTurn);
+  };
+
+
+    // function symbol(){
+    //   if (setXTurn === true || ){
+    //     setSymbol("X")
+    //   } else {
+    //     setSymbol("O")
+    //   }
+    // }
+ 
   return (
     <>
-      <Board gameBoard={board}/>
-    
-    </>
+      <h1>Tic Tac Toe Game</h1>
+      <Board gameBoard={board} onSelectSquare={handleSquareClick} />
+      <div className="info-wrapper">
+        <h3>
+          {winner ? "Winner: " + winner : "Next Player: " + currentPlayer}
+        </h3>
+      </div>
+   </>
       );
-}
+};
 
 
 
